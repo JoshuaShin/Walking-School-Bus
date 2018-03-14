@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\wu\StudioProjects\walkinggroupapp\TheWalkingSchoolBus.iml" filepath="C:\Users\wu\StudioProjects\walkinggroupapp\TheWalkingSchoolBus.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/walkinggroupapp.iml" filepath="$PROJECT_DIR$/walkinggroupapp.iml" />
-      <module fileurl="file://C:\Users\Plodder\Documents\AndroidProjects\TheWalkingSchoolBus\walkinggroupapp.iml" filepath="C:\Users\Plodder\Documents\AndroidProjects\TheWalkingSchoolBus\walkinggroupapp.iml" />
     </modules>
   </component>
 </project>
