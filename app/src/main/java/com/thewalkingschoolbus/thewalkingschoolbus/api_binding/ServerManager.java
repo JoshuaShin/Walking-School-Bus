@@ -477,7 +477,7 @@ public class ServerManager {
             BufferedReader error = new BufferedReader(new InputStreamReader((connection.getErrorStream())));
             throw new Gson().fromJson(error, ApiException.class);
         }
-        Log.e("TAG","no problem");
+        Log.i("TAG","no problem");
 
         StringBuffer response = readJsonIntoString(connection);
         group = new Gson().fromJson(response.toString(),Group.class);

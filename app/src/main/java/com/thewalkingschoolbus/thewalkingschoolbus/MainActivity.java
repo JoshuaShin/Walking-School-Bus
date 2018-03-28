@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         new GetUserAsyncTask(GET_USER_BY_EMAIL, user, null, null, null,new OnTaskComplete() {
             @Override
             public void onSuccess(Object result) {
-                User.setLoginUser((User)result);
+                User.getLoginUser().setId(((User)result).getId());
                 Intent intent = MainMenuActivity.makeIntent(self);
                 startActivity(intent);
                 finish();

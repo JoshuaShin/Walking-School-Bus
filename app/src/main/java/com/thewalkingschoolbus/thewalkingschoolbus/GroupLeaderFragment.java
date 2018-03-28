@@ -52,7 +52,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        clearListView();
+        //clearListView();
         getGroupListAndPopulateList();
     }
 
@@ -73,7 +73,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
                 }
 
                 // Begin get group detail recursion
-                getGroupWithDetail();
+                stringsPrep();
             }
 
             @Override
@@ -82,7 +82,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
             }
         }).execute();
     }
-
+/*
     private void getGroupWithDetail() {
         // Set up recursion
         populateListReady = false;
@@ -113,6 +113,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
             }
         }).execute();
     }
+    */
 
     private void stringsPrep(){
         String[] mGroupDisplay;
@@ -150,7 +151,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
         //registerClickCallback
         registerClickCallback();
     }
-
+/*
     private void clearListView(){
         // create list of item
         String[] myItems = {};
@@ -160,7 +161,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
         ListView list = view.findViewById(R.id.groupListViewLeader);
         list.setAdapter(adapter);
     }
-
+*/
     private void registerClickCallback() {
         ListView list = view.findViewById(R.id.groupListViewLeader);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -191,7 +192,7 @@ public class GroupLeaderFragment extends android.support.v4.app.Fragment {
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-                        clearListView();
+                        //clearListView();
                         getGroupListAndPopulateList();
                         // This method performs the actual data-refresh operation.
                         // The method calls setRefreshing(false) when it's finished.

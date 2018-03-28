@@ -92,7 +92,12 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),REGISTER_SUCCESSFULLY_MESSAGE, Toast.LENGTH_SHORT)
                                     .show();
                             storeUserInfoToSharePreferences();
-                            User.setLoginUser((User)result);
+
+                            User.setLoginUser(new User());
+                            User.getLoginUser().setId(((User)result).getId());
+                            User.getLoginUser().setEmail(registerEmail);
+                            User.getLoginUser().setEmail(registerPassword);
+
                             Intent intent = MainMenuActivity.makeIntent(getApplicationContext());
                             startActivity(intent);
                             finish();
