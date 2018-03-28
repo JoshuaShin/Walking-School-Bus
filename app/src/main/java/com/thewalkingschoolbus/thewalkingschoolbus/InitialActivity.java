@@ -74,7 +74,13 @@ public class InitialActivity extends AppCompatActivity {
         new GetUserAsyncTask(GET_USER_BY_EMAIL, attemptLoginUser, null, null, null, new OnTaskComplete() {
             @Override
             public void onSuccess(Object result) {
-                User.setLoginUser((User)result);
+
+                User user = (User) result;
+                User.setLoginUser(new User());
+                User.getLoginUser().setId(user.getId());
+                User.getLoginUser().setEmail(user.getEmail());
+                User.getLoginUser().setPassword(user.getPassword());
+
                 storeUserInfoToSharePreferences();
                 Intent intent = MainMenuActivity.makeIntent(self);
                 startActivity(intent);

@@ -93,7 +93,7 @@ public class UserProfileActivity extends AppCompatActivity {
                         public void onSuccess(Object result) {
                             Toast.makeText(getApplicationContext(), EDIT_SUCCESSFULLY_MESSAGE, Toast.LENGTH_SHORT)
                                     .show();
-                            User.setLoginUser((User)user );
+                            User.getLoginUser( ).setEmail(registerEmail);
                             storeUserInfoToSharePreferences();
                             finish();
                         }
@@ -115,7 +115,7 @@ public class UserProfileActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
 
         editor.putString(REGISTER_EMAIL, User.getLoginUser().getEmail());
-        editor.commit();
+        editor.apply();
     }
 
     private void setupTextviews() {
