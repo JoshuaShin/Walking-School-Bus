@@ -101,7 +101,6 @@ public class ServerManager {
         connection.setRequestMethod(GET);
         connection.setRequestProperty("Content-Type","application/json");
         connection.setRequestProperty("apiKey",API_KEY);
-        connection.setRequestProperty("JSON-DEPTH","2");
 
         if(User.getToken()!= null){
             connection.setRequestProperty("Authorization", User.getToken());
@@ -238,6 +237,7 @@ public class ServerManager {
 
         String url = BASE_URL+String.format(GET_USER_BY_ID,user.getId());
         HttpURLConnection connection = httpRequestGet(url,null);
+        connection.setRequestProperty("JSON-DEPTH","2");
 
         if (connection.getResponseCode() >= 400) {
             // failed
@@ -259,6 +259,7 @@ public class ServerManager {
     public User getUserByEmail(User user) throws Exception{
         String url = BASE_URL + String.format(GET_USER_BY_EMAIL,user.getEmail());
         HttpURLConnection connection = httpRequestGet(url,null);
+        connection.setRequestProperty("JSON-DEPTH","2");
 
         if (connection.getResponseCode() >= 400) {
             // failed
@@ -472,9 +473,11 @@ public class ServerManager {
 
         if (connection.getResponseCode() >= 400) {
             // failed
+            Log.e("TAG","problem");
             BufferedReader error = new BufferedReader(new InputStreamReader((connection.getErrorStream())));
             throw new Gson().fromJson(error, ApiException.class);
         }
+        Log.e("TAG","no problem");
 
         StringBuffer response = readJsonIntoString(connection);
         group = new Gson().fromJson(response.toString(),Group.class);
@@ -509,6 +512,7 @@ public class ServerManager {
     public Group getOneGroup(Group group)throws Exception{
         String url = BASE_URL+String.format(GET_ONE_GROUP,group.getId());
         HttpURLConnection connection = httpRequestGet(url,null);
+        connection.setRequestProperty("JSON-DEPTH","2");
 
         if (connection.getResponseCode() >= 400) {
             // failed

@@ -423,7 +423,10 @@ public class MapFragment extends android.support.v4.app.Fragment implements Goog
             // Build group to add
             double[] routeLatArray = {currentRoute.originLocation.latitude, currentRoute.destinationLocation.latitude, 0};
             double[] routeLngArray = {currentRoute.originLocation.longitude, currentRoute.destinationLocation.longitude, 0};
-            final Group group = new Group(name, routeLatArray, routeLngArray);
+            Group group = new Group(name, routeLatArray, routeLngArray);
+            User user = new User();
+            user.setId(User.getLoginUser().getId());
+            group.setLeader(user);
 
             new GetUserAsyncTask(CREATE_GROUP, null, null, group,null, new OnTaskComplete() {
                 @Override
@@ -431,7 +434,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements Goog
                     //Group[] group = (Group[]) result;
                     Toast.makeText(context, "Group created!", Toast.LENGTH_SHORT).show();
                     //joinGroup(context, (Group) result, false); // TODO: comment this out to disable auto join after creating group
-                    alertDialog.dismiss();
+                    //alertDialog.dismiss();
                 }
 
                 @Override
